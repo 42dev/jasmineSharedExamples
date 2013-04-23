@@ -11,8 +11,10 @@ function sharedExampleFor(exampleName, specFunction){
  * Calls the exampleName passed with the arguments sent
  */
 function itBehavesLike(exampleName){
+  //remove the example name from arguments
   var args = [];
   if(arguments.length > 1){
+    //arguments didn't have slice on it for some reason
     var args = Array.prototype.slice.call(arguments, 1);
   }
   
