@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <link type="text/css" rel="stylesheet" href="https://raw.github.com/pivotal/jasmine/v1.3.1/lib/jasmine-core/jasmine.css"/>
+
+    <script type="text/javascript" src="https://raw.github.com/pivotal/jasmine/v1.3.1/lib/jasmine-core/jasmine.js"> </script>
+    <script type="text/javascript" src="https://raw.github.com/pivotal/jasmine/v1.3.1/lib/jasmine-core/jasmine-html.js"> </script>
+    <script type="text/javascript" src="jasmineSharedExamples.js"> </script>
+    <script type="text/javascript" src="spec.js"> </script>
+
+    <script type="text/javascript">
+    (function() {
+      var jasmineEnv = jasmine.getEnv();
+      jasmineEnv.updateInterval = 100;
+
+      var trivialReporter = new jasmine.TrivialReporter();
+
+      jasmineEnv.addReporter(trivialReporter);
+
+      jasmineEnv.specFilter = function(spec) {
+        return trivialReporter.specFilter(spec);
+      };
+
+      var currentWindowOnload = window.onload;
+
+      window.onload = function() {
+        if (currentWindowOnload) {
+          currentWindowOnload();
+        }
+        execJasmine();
+      };
+
+      function execJasmine() {
+        jasmineEnv.execute();
+      }
+
+    })();
+  </script>
+  </head>
+  <body>    
+  </body>
+</html>
